@@ -1,11 +1,14 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+
+import {StyledAppBar, StyledLink} from './styles';
 
 const Header = () => (
     <div>
-        <Link to={'/'}>Home</Link>
-        <Link to={'/map'}>Map</Link>
-        <Link to={'/profile'}> Profile</Link>
+        <StyledAppBar>
+            <StyledLink to={'/'}>Home</StyledLink>
+            <StyledLink to={'/map'}>Map</StyledLink>
+            <StyledLink to={'/profile'}> Profile</StyledLink>
+        </StyledAppBar>
     </div>
 );
 

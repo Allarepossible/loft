@@ -9,6 +9,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import Routes from './Routes';
 import reducer from './reducers';
 import {authSaga} from './helpers/auth'
+import './assets/Roboto-Regular.ttf'
 
 const sagaMiddleware = createSagaMiddleware();
 
