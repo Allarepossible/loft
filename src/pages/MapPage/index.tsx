@@ -9,6 +9,8 @@ class MapPage extends Component {
         if (!this.mapContainer.current) {
             return;
         }
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGlzeW5vayIsImEiOiJja2hudHhvYmkwenk5MzRydDQ2bzAxZ3lrIn0.CW8miJdbbZ2rX233WcNceA';
+
         this.map = new mapboxgl.Map({
             container: this.mapContainer.current,
             style: 'mapbox://styles/mapbox/streets-v11',

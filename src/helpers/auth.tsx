@@ -1,16 +1,18 @@
+import {takeEvery, call, put} from 'redux-saga/effects';
+
 import {logIn} from '../actions/auth';
 import {serverLogin} from '../api';
 import {AUTHENTICATE} from '../actions/auth';
 
-export const authMiddleware = ({dispatch}: any) => (next: any) => async (action: any) => {
-    if (action.type === AUTHENTICATE) {
-        const {email, password} = action.payload;
-        const success = await serverLogin(email, password);
+export function* authenticateSaga(action: any) {
+    const {email, password} = action.payload;
+    const success = yield call(serverLogin, email, password);
 
-        if (success) {
-            dispatch(logIn());
-        } else {
-            next(action);
-        }
+    if (success) {
+        yield put(logIn());
     }
-};
+}
+
+export function* authSaga() {
+    yield takeEvery(AUTHENTICATE, authenticateSaga);
+}
