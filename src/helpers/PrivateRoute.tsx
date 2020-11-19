@@ -14,7 +14,7 @@ const PrivateRoute = ({
             isAuthorized ? (
                 <Component {...routeProps} />
             ) : (
-                <Redirect to="/" />
+                <Redirect to="/login" />
             )
         }
     />

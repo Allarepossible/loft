@@ -1,15 +1,22 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-import {StyledAppBar, StyledLink} from './styles';
+import {logOut} from '../../actions/auth'
+import Logo from './Logo';
 
-const Header = () => (
+import {StyledAppBar, StyledLink, Logout, Menu} from './styles';
+
+const Header = ({logOut: out}: any) => (
     <div>
         <StyledAppBar>
-            <StyledLink to={'/'}>Home</StyledLink>
-            <StyledLink to={'/map'}>Map</StyledLink>
-            <StyledLink to={'/profile'}> Profile</StyledLink>
+            <Logo />
+            <Menu>
+                <StyledLink to={'/'}>Map</StyledLink>
+                <StyledLink to={'/profile'}> Profile</StyledLink>
+                <Logout onClick={out}>Log out</Logout>
+            </Menu>
         </StyledAppBar>
     </div>
 );
 
-export default Header;
+export default connect(null, {logOut})(Header);
