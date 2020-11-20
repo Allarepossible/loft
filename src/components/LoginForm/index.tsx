@@ -2,7 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {authenticate} from '../../actions/auth';
-import {Wrapper, Form, Title, Label, Input, Button, Info, StyledLink, Password} from './styles';
+import Input from '../Input';
+
+import {Wrapper, Form, Title, Button, Info, StyledLink, Password} from './styles';
 
 const LoginForm = ({authenticate}: any) => (
     <Wrapper>
@@ -13,10 +15,8 @@ const LoginForm = ({authenticate}: any) => (
             authenticate(email.value, password.value);
         }}>
             <Title>Sign in</Title>
-            <Label htmlFor="email">Email</Label>
-            <Input><input id="email" type="email" name="email" size={28} placeholder="mail@mail.com" /></Input>
-            <Label htmlFor="password">Password</Label>
-            <Input><input id="password" type="password" name="password" size={28} placeholder="********"/></Input>
+            <Input type="email" name="email" placeholder="mail@mail.com" label="Email" />
+            <Input type="password" name="password" placeholder="********" label="Password" />
             <Password>Forgot your password?</Password>
             <Button type="submit">Sign in</Button>
             <Info>

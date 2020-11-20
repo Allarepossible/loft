@@ -21,57 +21,13 @@ export const Form = styled.form`
 `;
 
 export const Title = styled.h1`
-    align-self: center;
+    width: 350px;
+    text-align: center;
     font-weight: bold;
     color: black;
     font-size: 30px;
     line-height: 35px;
     margin-bottom: 57px;
-`;
-
-export const Label = styled.label`
-    transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 19px;
-    margin-top: 10px;
-`;
-
-export const Input = styled.div`
-    position: relative;
-    align-self: center;
-    margin-bottom: 25px;
-    width: 350px;
-    
-   
-    &::before {
-        left: 0;
-        right: 0; 
-        bottom: 0;
-        content: " ";
-        position: absolute;
-        transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.42);
-    }
-    
-    &:hover:before {
-        border-bottom: 2px solid rgba(0, 0, 0, 0.87);
-    }
-    
-    & input {
-        font-size: 18px;
-        line-height: 21px;
-        padding: 6px 0 7px;
-        border: none;
-        width: 100%;
-        
-        &:focus {
-            outline: 0;
-        }
-        &::placeholder {
-          color: #b2b2b2;
-        }
-    }
 `;
 
 export const Button = styled.button`
