@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 
 const HomePage = () => (
     <>
-        <Header />
+        <Header active="map" />
         <form onSubmit={() => {}}>
             <label htmlFor="to">Куда едем? </label>
             <input id="ещ" type="password" name="password" size={28} />

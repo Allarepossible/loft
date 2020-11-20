@@ -6,12 +6,12 @@ import Logo from './Logo';
 
 import {StyledHeader, StyledLink, Logout, Menu} from './styles';
 
-const Header = ({logOut: out}: any) => (
+const Header = ({logOut: out, active}: any) => (
     <StyledHeader>
         <Logo />
         <Menu>
-            <StyledLink to={'/'}>Map</StyledLink>
-            <StyledLink to={'/profile'}> Profile</StyledLink>
+            <StyledLink to={'/'} active={active === 'map'}>Map</StyledLink>
+            <StyledLink to={'/profile'} active={active === 'profile'}> Profile</StyledLink>
             <Logout onClick={out}>Sign out</Logout>
         </Menu>
     </StyledHeader>

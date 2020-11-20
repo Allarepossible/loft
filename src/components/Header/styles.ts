@@ -16,7 +16,7 @@ export const Menu = styled.header`
     justify-content: flex-end;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)<{active?: boolean}>`
     color: ${({active}: any) => active ? '#FDBF5A' : 'white'};
     text-decoration: none;
     
