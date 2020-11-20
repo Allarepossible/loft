@@ -4,6 +4,7 @@ export const MapWrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
+    overflow: hidden;
     z-index: -1;
     display: flex;
     flex: 1;
