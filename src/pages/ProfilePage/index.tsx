@@ -2,13 +2,18 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import Header from '../../components/Header';
+import ProfileForm from '../../components/ProfileForm';
+
+import {Page, Content} from './styles';
 
 const ProfilePage = () => {
     return (
-        <>
+        <Page>
             <Header active="profile"/>
-            Страница профиля
-        </>
+            <Content>
+                <ProfileForm />
+            </Content>
+        </Page>
     );
 };
 

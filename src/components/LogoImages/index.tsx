@@ -2,10 +2,11 @@ import React from 'react';
 
 const SIZES = {
     big: 136,
-    small: 61,
+    medium: 61,
+    small: 33,
 };
 
-export const Image = ({size= 'big'}: {size?: 'big' | 'small'}) => (
+export const Image = ({size= 'big'}: {size?: 'big' | 'small' | 'medium'}) => (
     <svg width={SIZES[size]} height={SIZES[size]} viewBox="0 0 136 136" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fillRule="evenodd" clipRule="evenodd" d="M68 136C105.555 136 136 105.555 136 68C136 60.1133 134.657 52.5401 132.188 45.4967L45.4967 132.188C52.5401 134.657 60.1133 136 68 136ZM13.0509 108.065L46.416 74.7003L7.89132 36.1756C2.85364 45.6708 0 56.5022 0 68C0 82.9801 4.84392 96.8289 13.0509 108.065ZM36.1756 7.89132L74.7003 46.416L108.065 13.0509C96.8289 4.84392 82.9801 0 68 0C56.5022 0 45.6708 2.85364 36.1756 7.89132Z" fill="#FDBF5A"/>
         <path d="M22.4142 22.5857L30.8284 30.9999" stroke="#FDBF5A" strokeWidth="4"/>

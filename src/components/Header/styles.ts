@@ -17,7 +17,7 @@ export const Menu = styled.header`
 `;
 
 export const StyledLink = styled(Link)<{active?: boolean}>`
-    color: ${({active}: any) => active ? '#FDBF5A' : 'white'};
+    color: ${({active}) => active ? '#FDBF5A' : 'white'};
     text-decoration: none;
     
     & + & {

@@ -6,7 +6,7 @@ import {Image, Text} from '../../LogoImages';
 const Logo = () => (
     <>
         <StyledLink to="/">
-            <Image size="small" />
+            <Image size="medium" />
             <LogoText><Text /></LogoText>
         </StyledLink>
     </>
