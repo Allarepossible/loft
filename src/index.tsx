@@ -8,14 +8,14 @@ import {BrowserRouter as Router} from 'react-router-dom';
 
 import Routes from './Routes';
 import reducer from './reducers';
-import {authSaga} from './helpers/auth'
+import rootSaga from './sagas'
 import './assets/Roboto-Regular.ttf'
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 
-sagaMiddleware.run(authSaga)
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
     <Provider store={store}>

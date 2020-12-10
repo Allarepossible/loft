@@ -44,3 +44,8 @@ export const StyledLink = styled(Link)`
     text-decoration: none;
     margin-left: 5px;
 `;
+
+export const Error = styled.span`
+    color: red;
+    margin: 15px 0;
+`;

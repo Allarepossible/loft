@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {Container, Title, Info, StyledLink, Subtitle} from './styles';
+import {Container, Title, Info, StyledLink, Subtitle, Error} from './styles';
 
-const FormContainer = ({title, subtitle, content, info, padding}: any) => (
+const FormContainer = ({title, subtitle, content, info, padding, error}: any) => (
     <Container padding={padding}>
         <Title>{title}</Title>
         {subtitle && <Subtitle>{subtitle}</Subtitle>}
@@ -11,6 +11,7 @@ const FormContainer = ({title, subtitle, content, info, padding}: any) => (
             <span>{info.text}</span>
             <StyledLink to={info.link}>{info.linkText}</StyledLink>
         </Info>}
+        {error && <Error>{error}</Error>}
     </Container>
 );
 

@@ -1,4 +1,5 @@
 import {createGlobalStyle} from 'styled-components';
+import map from '../assets/mapBackground.png'
 
 const GlobalStyle = createGlobalStyle`
     button {
@@ -11,7 +12,8 @@ const GlobalStyle = createGlobalStyle`
         width: 100%;
         height: 100%;
         margin: 0;
-        background-color: #f4f4f4;
+        background: url(${map});
+        background-size: cover;
        
     }
     @font-face {

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {connect} from 'react-redux';
 
 import Input from '../Input';
 import Button from '../Button';
@@ -6,15 +7,16 @@ import {Image} from '../LogoImages';
 import FormContainer from '../FormContainer';
 
 import {Wrapper, Form, Row, Column, CardInfo, Number, ButtonWrapper} from './styles';
+import {fetchCard as fetchCardAction, addCard as addCardAction} from "../../actions/card";
 
 const Content = ({onSubmit}: any) => (
     <Form onSubmit={onSubmit}>
         <Row gap="100px">
             <Column>
-                <Input type="text" name="name" placeholder="IVANOV IVAN" label="Surname Name" />
-                <Input type="text" name="number" placeholder="0000 0000 0000 0000" label="Card number" />
+                <Input type="text" name="cardName" placeholder="IVANOV IVAN" label="Surname Name" />
+                <Input type="text" name="cardNumber" placeholder="0000 0000 0000 0000" label="Card number" />
                 <Row gap="50px">
-                    <Input type="text" name="date" placeholder="00/00" label="MM/YY" />
+                    <Input type="text" name="expiryDate" placeholder="00/00" label="MM/YY" />
                     <Input type="text" name="cvc" placeholder="000" label="CVC" />
                 </Row>
             </Column>
@@ -29,15 +31,42 @@ const Content = ({onSubmit}: any) => (
     </Form>
 );
 
-const ProfileForm = () => (
-    <Wrapper>
-        <FormContainer
-            title="Profile"
-            padding="60px 40px"
-            subtitle="Add your payment cart"
-            content={<Content onSubmit={() => {}} />}
-        />
-    </Wrapper>
-);
+const ProfileForm = ({token, fetchCard, addCard, isFetched}: any) => {
+    useEffect(() => {
+        if (!isFetched) {
+            fetchCard(token);
+        }
+    });
 
-export default ProfileForm;
+    return (
+        <Wrapper>
+            <FormContainer
+                title="Profile"
+                padding="60px 40px"
+                subtitle="Add your payment cart"
+                content={<Content onSubmit={(e: any) => {
+                    e.preventDefault();
+                    const {cardName, cardNumber, expiryDate, cvc} = e.target;
+                    addCard({
+                        token,
+                        cardName: cardName.value,
+                        cardNumber: cardNumber.value,
+                        expiryDate: expiryDate.value,
+                        cvc: cvc.value,
+                    })
+                }}/>}
+            />
+        </Wrapper>
+    );
+};
+
+const mapStateToProps = (state: any) => ({
+    token: state.auth.token,
+    isFetched: state.card.isFetched,
+});
+const mapDispatchToProps = {
+    fetchCard: fetchCardAction,
+    addCard: addCardAction,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileForm);

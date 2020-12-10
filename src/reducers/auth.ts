@@ -3,6 +3,7 @@ import {LOG_IN, LOG_OUT} from '../actions/auth'
 
 const initialState = {
     isLoggedIn: false,
+    token: '',
 };
 
 const authReducer: Reducer = (
@@ -12,10 +13,12 @@ const authReducer: Reducer = (
     switch (action.type) {
         case LOG_IN:
             return {
+                token: action.payload,
                 isLoggedIn: true,
             };
         case LOG_OUT:
             return {
+                token: '',
                 isLoggedIn: false,
             };
     }

@@ -23,6 +23,10 @@ export const StyledLink = styled(Link)`
     border: none;
     width: 100%;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    margin-top: 50px;
     
     :hover {
         background-color: #FFA842;
