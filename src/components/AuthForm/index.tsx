@@ -1,4 +1,5 @@
 import React from 'react';
+import {Form} from 'react-final-form';
 import {connect} from 'react-redux';
 
 import Input from '../Input';
@@ -6,16 +7,21 @@ import Button from '../Button';
 import FormContainer from '../FormContainer';
 import {register} from '../../actions/register';
 
-import {Wrapper, Form} from './styles';
+import {Wrapper, Form as StyledForm} from './styles';
 
 const Content = ({onSubmit}: any) => (
-    <Form onSubmit={onSubmit}>
-        <Input type="email" name="email" placeholder="mail@mail.com" label="Email" required />
-        <Input type="text" name="name" placeholder="John" label="Your name" required />
-        <Input type="text" name="surname" placeholder="Smith" label="Your surname" required />
-        <Input type="password" name="password" placeholder="********" label="Password" required />
-        <Button text="Create your account"/>
-    </Form>
+    <Form
+        onSubmit={onSubmit}
+        render={({handleSubmit}: any) => (
+            <StyledForm onSubmit={handleSubmit}>
+                <Input type="email" name="email" placeholder="mail@mail.com" label="Email" required />
+                <Input type="text" name="name" placeholder="John" label="Your name" required />
+                <Input type="text" name="surname" placeholder="Smith" label="Your surname" required />
+                <Input type="password" name="password" placeholder="********" label="Password" required />
+                <Button text="Create your account"/>
+            </StyledForm>
+        )}
+    />
 );
 
 const AuthForm = ({reg, error}: any) => (

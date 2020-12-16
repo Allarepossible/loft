@@ -6,7 +6,6 @@ import {AUTHENTICATE, logIn} from '../actions/auth';
 function* authenticateSaga(action: any) {
     const {email, password} = action.payload;
     const data = yield call(fetchAuth, email, password);
-
     if (data.success) {
         yield put(logIn(data.token));
     }

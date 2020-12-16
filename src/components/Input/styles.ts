@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {Field} from 'react-final-form';
 
 export const InputWrapper = styled.div`
     display: flex;
@@ -31,6 +32,22 @@ export const Label = styled.label`
 
 
 export const StyledInput = styled.input`
+    font-size: 18px;
+    line-height: 21px;
+    padding: 6px 0 7px;
+    border: none;
+    width: 100%;
+    
+    &:focus {
+        outline: 0;
+    }
+    
+    &:placeholder {
+        color: #b2b2b2;
+    }
+`;
+
+export const StyledField = styled(Field)`
     font-size: 18px;
     line-height: 21px;
     padding: 6px 0 7px;

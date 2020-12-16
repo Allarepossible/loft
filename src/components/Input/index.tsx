@@ -1,12 +1,18 @@
 import React from 'react';
+import {Field} from 'react-final-form';
 
-import {InputWrapper, StyledInput, Label} from './styles';
+import {InputWrapper, Label, StyledInput} from './styles';
 
-const Input = ({name, type, placeholder, label, required}: any) => (
-    <InputWrapper>
-        <Label htmlFor={name}>{label}</Label>
-        <StyledInput id={name} type={type} name={name} size={28} placeholder={placeholder} required={required} />
-    </InputWrapper>
+const Input = ({name, placeholder, label, required}: any) => (
+    <Field name={name}>
+        {({input, meta}: any) => (
+            <InputWrapper>
+                <Label htmlFor={name}>{label}</Label>
+                <StyledInput {...input} placeholder={placeholder} required={required} />
+                {meta.touched && meta.error && <span>{meta.error}</span>}
+            </InputWrapper>
+        )}
+    </Field>
 );
 
 export default Input;
