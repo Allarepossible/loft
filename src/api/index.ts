@@ -26,10 +26,6 @@ export const fetchRegister = (props: RegisterProps) =>
     .then(res => res.json())
         .catch(e =>{console.log(e); return {}});
 
-export const fetchAddressList = () =>
-    fetch('https://loft-taxi.glitch.me/addressList')
-        .then(res => res.json());
-
 export const fetchCard = (token: string) =>
     fetch(`https://loft-taxi.glitch.me/card?token=${token}`)
         .then(res => res.json());
@@ -52,3 +48,16 @@ export const addCard = (card: CardProps) =>
     })
     .then(res => res.json());
 
+
+export const fetchAddressList = () =>
+    fetch('https://loft-taxi.glitch.me/addressList')
+        .then(res => res.json());
+
+export interface RouteProps {
+    from: string;
+    to: string;
+}
+
+export const fetchRoute = ({from, to}: RouteProps) =>
+    fetch(`https://loft-taxi.glitch.me/route?address1=${from}&address2=${to}`)
+        .then(res => res.json());

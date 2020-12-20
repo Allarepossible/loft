@@ -7,6 +7,7 @@ import OrderForm from '../../components/OrderForm';
 import FormContainer from '../../components/FormContainer';
 import Button from '../../components/Button';
 import {fetchCard as fetchCardAction} from '../../actions/card';
+import {fetchAddressList as fetchAddressListAction} from '../../actions/address';
 
 const WithoutCardInfo = () => (
     <div style={{width: '500px', position: 'absolute', top: '400px', left: '50%', transform: 'translateX(-50%)'}}>
@@ -17,12 +18,17 @@ const WithoutCardInfo = () => (
     </div>
 );
 
-const HomePage = ({token, cardId, fetchCard, isFetched}: any) => {
+const HomePage = ({token, cardId, fetchCard, isFetched, fetchAddressList, addressList}: any) => {
     useEffect(() => {
-        if (!cardId && !isFetched) {
+        if (!addressList.length) {
+            fetchAddressList();
+        }
+    }, []);
+    useEffect(() => {
+        if (!isFetched) {
             fetchCard(token);
         }
-    });
+    }, []);
 
     return (
         <>
@@ -37,9 +43,11 @@ const mapStateToProps = (state: any) => ({
     token: state.auth.token,
     cardId: state.card.cardInfo.id,
     isFetched: state.card.isFetched,
+    addressList: state.address.addressList,
 });
 const mapDispatchToProps = {
-    fetchCard: fetchCardAction
+    fetchCard: fetchCardAction,
+    fetchAddressList: fetchAddressListAction
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
